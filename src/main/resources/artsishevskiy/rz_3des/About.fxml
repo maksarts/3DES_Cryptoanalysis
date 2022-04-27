@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="706.0" prefWidth="680.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="artsishevskiy.rz_3des.AboutController">
+   <children>
+      <Text layoutX="14.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Автор программы:">
+         <font>
+            <Font name="Monospaced Bold" size="19.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Тема: ">
+         <font>
+            <Font name="Monospaced Bold" size="19.0" />
+         </font>
+      </Text>
+      <Text layoutX="205.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Арцшевский Максим, А-13-18">
+         <font>
+            <Font name="Monospaced Italic" size="19.0" />
+         </font>
+      </Text>
+      <Text layoutX="82.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Расчетное задание КМЗИ, Криптоанализ шифра 3-DES" wrappingWidth="369.2890625">
+         <font>
+            <Font name="Monospaced Italic" size="19.0" />
+         </font>
+      </Text>
+      <Text layoutX="270.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="О ПРОГРАММЕ">
+         <font>
+            <Font name="Monospaced Bold" size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="277.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Инструкция:">
+         <font>
+            <Font name="Monospaced Bold" size="23.0" />
+         </font>
+      </Text>
+      <Text layoutX="24.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="В левой части экрана расположены элементы для шифрования произвольного текста с произвольным ключом с помощью шифра 3-DES, интерфейс интуитивно понятен :)" wrappingWidth="561.2890625">
+         <font>
+            <Font name="Monospaced Regular" size="19.0" />
+         </font>
+      </Text>
+      <Text layoutX="24.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="В правой части представлена возможность криптоанализа (взлома шифра) 3-DES. В поле &quot;Шифротекст&quot; помещается произвольный зашифрованный текст (в т.ч. есть возможность с помощью соответствующей кнопки переместить в него текст, полученный при шифровании). Далее необходимо указать &quot;подсказки&quot; для дешифратора - длину парольной фразы и используемые в парольной фразе символы (с помощью выбора соответствующих пунктов). При нажатии кнопки &quot;СТАРТ&quot; происходит запуск процесса дешифровки и в окне &quot;Открытый текст&quot; мы получаем список из первых 30 дешифрованных значений. Вы можете просмотреть всех полученные значения, если среди них есть ответ - поздравляю, вы взломали шифр! Нажимайте кнопку &quot;Готово&quot; и радуйтесь. Если же нет - с помощью кнопки &quot;Следующий вариант&quot; программа выведет вам следующую порцию дешифрованных значений." wrappingWidth="638.2890625">
+         <font>
+            <Font name="Monospaced Regular" size="19.0" />
+         </font>
+      </Text>
+      <Button fx:id="ButtonOK" layoutX="277.0" layoutY="654.0" mnemonicParsing="false" onAction="#OnActionButtonOK" prefHeight="38.0" prefWidth="152.0" text="OK">
+         <font>
+            <Font name="Monospaced Regular" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

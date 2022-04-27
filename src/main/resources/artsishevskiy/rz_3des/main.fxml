@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="766.0" prefWidth="1114.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="artsishevskiy.rz_3des.MainController">
+   <children>
+      <Text layoutX="282.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3-DES CRYPTOANALYSIS" wrappingWidth="549.23828125">
+         <font>
+            <Font name="Monospaced Bold" size="45.0" />
+         </font>
+      </Text>
+      <Text layoutX="116.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ЗАШИФРОВАТЬ" wrappingWidth="277.23828125">
+         <font>
+            <Font name="Monospaced Bold" size="38.0" />
+         </font>
+      </Text>
+      <Text layoutX="721.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="РАСШИФРОВАТЬ" wrappingWidth="322.23828125">
+         <font>
+            <Font name="Monospaced Bold" size="38.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Открытый текст:" wrappingWidth="277.23828125">
+         <font>
+            <Font name="Monospaced Bold" size="26.0" />
+         </font>
+      </Text>
+      <Text layoutX="20.0" layoutY="495.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Шифротекст:" wrappingWidth="277.23828125">
+         <font>
+            <Font name="Monospaced Bold" size="26.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="text_encrypt_open" layoutX="20.0" layoutY="210.0" prefHeight="125.0" prefWidth="470.0" />
+      <TextArea fx:id="text_encrypt_coded" editable="false" layoutX="21.0" layoutY="512.0" prefHeight="178.0" prefWidth="470.0" />
+      <TextArea fx:id="text_decrypt_coded" layoutX="621.0" layoutY="210.0" prefHeight="125.0" prefWidth="470.0" />
+      <Text layoutX="621.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Шифротекст:" wrappingWidth="277.23828125">
+         <font>
+            <Font name="Monospaced Bold" size="26.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="text_decrypt_open" editable="false" layoutX="622.0" layoutY="512.0" prefHeight="178.0" prefWidth="470.0" />
+      <Text layoutX="622.0" layoutY="495.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Открытый текст:" wrappingWidth="277.23828125">
+         <font>
+            <Font name="Monospaced Bold" size="26.0" />
+         </font>
+      </Text>
+      <Button fx:id="ButtonNext" layoutX="622.0" layoutY="702.0" mnemonicParsing="false" onAction="#OnActionButtonNext" prefHeight="32.0" prefWidth="221.0" text="Следующий вариант">
+         <font>
+            <Font name="Monospaced Bold" size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="ButtonDone" layoutX="871.0" layoutY="702.0" mnemonicParsing="false" onAction="#OnActionButtonDone" prefHeight="32.0" prefWidth="221.0" text="Готово">
+         <font>
+            <Font name="Monospaced Bold" size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="ButtonDecrypt" layoutX="146.0" layoutY="702.0" mnemonicParsing="false" onAction="#OnActionButtonDecrypt" prefHeight="32.0" prefWidth="221.0" text="Дешифровать -&gt;">
+         <font>
+            <Font name="Monospaced Bold" size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="ButtonEncrypt" layoutX="146.0" layoutY="410.0" mnemonicParsing="false" onAction="#OnActionButtonEncrypt" prefHeight="32.0" prefWidth="221.0" text="Зашифровать">
+         <font>
+            <Font name="Monospaced Bold" size="19.0" />
+         </font>
+      </Button>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="Файл">
+            <items>
+              <MenuItem fx:id="MenuButtonClose" mnemonicParsing="false" onAction="#OnActionMenuButtonClose" text="Выход" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Инструменты">
+            <items>
+              <MenuItem fx:id="MenuButtonClearFields" mnemonicParsing="false" onAction="#OnActionMenuButtonClearFields" text="Очистить поля" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Помощь">
+            <items>
+              <MenuItem fx:id="MenuButtonAbout" mnemonicParsing="false" onAction="#OnActionMenuButtonAbout" text="О программе" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TextField fx:id="text_encrypt_passphrase" layoutX="259.0" layoutY="352.0" prefHeight="31.0" prefWidth="232.0" />
+      <Text layoutX="20.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Парольная фраза:" wrappingWidth="277.23828125">
+         <font>
+            <Font name="Monospaced Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="621.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Длина парольной фразы:" wrappingWidth="348.23828125">
+         <font>
+            <Font name="Monospaced Bold" size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="text_decrypt_passLength" layoutX="943.0" layoutY="352.0" prefHeight="31.0" prefWidth="147.0" />
+      <CheckBox fx:id="isDigits" layoutX="622.0" layoutY="391.0" mnemonicParsing="false" text="цифры">
+         <font>
+            <Font name="Monospaced Bold" size="21.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="isLatin" layoutX="622.0" layoutY="429.0" mnemonicParsing="false" text="латиница">
+         <font>
+            <Font name="Monospaced Bold" size="21.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="isSpecSymbols" layoutX="743.0" layoutY="391.0" mnemonicParsing="false" text="спецсимволы">
+         <font>
+            <Font name="Monospaced Bold" size="21.0" />
+         </font>
+      </CheckBox>
+      <Label fx:id="label_encrypt_error" layoutX="259.0" layoutY="381.0" prefHeight="21.0" prefWidth="232.0" />
+      <Button fx:id="ButtonStart" layoutX="871.0" layoutY="469.0" mnemonicParsing="false" onAction="#OnActionButtonStart" prefHeight="38.0" prefWidth="221.0" text="СТАРТ">
+         <font>
+            <Font name="Monospaced Bold" size="19.0" />
+         </font>
+      </Button>
+      <Label fx:id="label_decrypt_error" layoutX="783.0" layoutY="433.0" prefHeight="21.0" prefWidth="307.0" />
+   </children>
+</AnchorPane>
