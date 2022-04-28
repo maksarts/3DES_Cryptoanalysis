@@ -56,6 +56,31 @@ public class MainController {
         return new String(output);
     }
 
+    // конструируем вывод вариантов расшифровок без исключений
+    private String MakeOutputNoExeption(ArrayList<String> vars) throws NoSuchAlgorithmException {
+        StringBuilder output = new StringBuilder("");
+        MessageDigest md = MessageDigest.getInstance("md5");
+
+        vars.forEach(var -> {
+            byte[] digestOfPassword = md.digest(var.getBytes(StandardCharsets.UTF_8));
+
+            try {
+                String result = TripleDesBouncyCastle.decode(analyzer.GetCryptedText(), digestOfPassword);
+                output.append("Key: ");
+                output.append(var);
+                output.append("---> Decrypted: ");
+                output.append(result);
+                output.append("\n");
+            } catch (IllegalBlockSizeException | InvalidKeyException | NoSuchPaddingException
+                    | NoSuchProviderException | NoSuchAlgorithmException | BadPaddingException e) {
+                e.printStackTrace();
+            }
+        });
+
+        if(output.isEmpty()) output.append("* No results without exeption *");
+        return new String(output);
+    }
+
     @FXML
     private ResourceBundle resources;
 
@@ -76,6 +101,9 @@ public class MainController {
 
     @FXML
     private CheckBox isDigits;
+
+    @FXML
+    private CheckBox ignoreExeptions;
 
     @FXML
     private TextField text_decrypt_passLength;
@@ -122,7 +150,12 @@ public class MainController {
     @FXML
     void OnActionButtonNext(ActionEvent event) throws NoSuchAlgorithmException {
         ArrayList<String> variants = analyzer.MakeStep();
-        text_decrypt_open.setText(MakeOutput(variants));
+        if(ignoreExeptions.isSelected()){
+            text_decrypt_open.setText(MakeOutputNoExeption(variants));
+        }
+        else{
+            text_decrypt_open.setText(MakeOutput(variants));
+        }
     }
 
     @FXML
@@ -175,7 +208,12 @@ public class MainController {
                                             1000
                 );
                 ArrayList<String> variants = analyzer.MakeStep();
-                text_decrypt_open.setText(MakeOutput(variants));
+                if(ignoreExeptions.isSelected()){
+                    text_decrypt_open.setText(MakeOutputNoExeption(variants));
+                }
+                else{
+                    text_decrypt_open.setText(MakeOutput(variants));
+                }
             }
         }
         catch (NumberFormatException e){
@@ -275,6 +313,7 @@ public class MainController {
         assert text_decrypt_coded != null : "fx:id=\"text_decrypt_coded\" was not injected: check your FXML file 'main.fxml'.";
         assert text_decrypt_open != null : "fx:id=\"text_decrypt_open\" was not injected: check your FXML file 'main.fxml'.";
         assert MenuButtonClearFields != null : "fx:id=\"MenuButtonClearFields\" was not injected: check your FXML file 'main.fxml'.";
+        assert ignoreExeptions != null : "fx:id=\"ignoreExeptions\" was not injected: check your FXML file 'main.fxml'.";
         assert ButtonEncrypt != null : "fx:id=\"ButtonEncrypt\" was not injected: check your FXML file 'main.fxml'.";
         assert ButtonNext != null : "fx:id=\"ButtonNext\" was not injected: check your FXML file 'main.fxml'.";
         assert text_encrypt_passphrase != null : "fx:id=\"text_encrypt_passphrase\" was not injected: check your FXML file 'main.fxml'.";

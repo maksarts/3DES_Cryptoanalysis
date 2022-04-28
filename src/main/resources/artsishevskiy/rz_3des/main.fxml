@@ -122,6 +122,11 @@
             <Font name="Monospaced Bold" size="19.0" />
          </font>
       </Button>
-      <Label fx:id="label_decrypt_error" layoutX="783.0" layoutY="433.0" prefHeight="21.0" prefWidth="307.0" />
+      <Label fx:id="label_decrypt_error" layoutX="783.0" layoutY="419.0" prefHeight="21.0" prefWidth="307.0" />
+      <CheckBox fx:id="ignoreExeptions" layoutX="871.0" layoutY="441.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="221.0" text="убрать исключения">
+         <font>
+            <Font name="Monospaced Bold" size="18.0" />
+         </font>
+      </CheckBox>
    </children>
 </AnchorPane>
