@@ -36,9 +36,9 @@
             <Font name="Monospaced Bold" size="26.0" />
          </font>
       </Text>
-      <TextArea fx:id="text_encrypt_open" layoutX="20.0" layoutY="210.0" prefHeight="125.0" prefWidth="470.0" />
+      <TextArea fx:id="text_encrypt_open" layoutX="20.0" layoutY="210.0" prefHeight="97.0" prefWidth="470.0" />
       <TextArea fx:id="text_encrypt_coded" editable="false" layoutX="21.0" layoutY="512.0" prefHeight="178.0" prefWidth="470.0" />
-      <TextArea fx:id="text_decrypt_coded" layoutX="621.0" layoutY="210.0" prefHeight="125.0" prefWidth="470.0" />
+      <TextArea fx:id="text_decrypt_coded" layoutX="621.0" layoutY="210.0" prefHeight="97.0" prefWidth="470.0" />
       <Text layoutX="621.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Шифротекст:" wrappingWidth="277.23828125">
          <font>
             <Font name="Monospaced Bold" size="26.0" />
@@ -65,7 +65,7 @@
             <Font name="Monospaced Bold" size="19.0" />
          </font>
       </Button>
-      <Button fx:id="ButtonEncrypt" layoutX="146.0" layoutY="410.0" mnemonicParsing="false" onAction="#OnActionButtonEncrypt" prefHeight="32.0" prefWidth="221.0" text="Зашифровать">
+      <Button fx:id="ButtonEncrypt" layoutX="146.0" layoutY="362.0" mnemonicParsing="false" onAction="#OnActionButtonEncrypt" prefHeight="32.0" prefWidth="221.0" text="Зашифровать">
          <font>
             <Font name="Monospaced Bold" size="19.0" />
          </font>
@@ -89,44 +89,50 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TextField fx:id="text_encrypt_passphrase" layoutX="259.0" layoutY="352.0" prefHeight="31.0" prefWidth="232.0" />
-      <Text layoutX="20.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Парольная фраза:" wrappingWidth="277.23828125">
+      <TextField fx:id="text_encrypt_passphrase" layoutX="261.0" layoutY="313.0" prefHeight="31.0" prefWidth="232.0" />
+      <Text layoutX="22.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Парольная фраза:" wrappingWidth="277.23828125">
          <font>
             <Font name="Monospaced Bold" size="24.0" />
          </font>
       </Text>
-      <Text layoutX="621.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Длина парольной фразы:" wrappingWidth="348.23828125">
+      <Text layoutX="623.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Длина парольной фразы:" wrappingWidth="348.23828125">
          <font>
             <Font name="Monospaced Bold" size="24.0" />
          </font>
       </Text>
-      <TextField fx:id="text_decrypt_passLength" layoutX="943.0" layoutY="352.0" prefHeight="31.0" prefWidth="147.0" />
-      <CheckBox fx:id="isDigits" layoutX="622.0" layoutY="391.0" mnemonicParsing="false" text="цифры">
+      <TextField fx:id="text_decrypt_passLength" layoutX="945.0" layoutY="313.0" prefHeight="31.0" prefWidth="147.0" />
+      <CheckBox fx:id="isDigits" layoutX="624.0" layoutY="352.0" mnemonicParsing="false" text="цифры">
          <font>
             <Font name="Monospaced Bold" size="21.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="isLatin" layoutX="622.0" layoutY="429.0" mnemonicParsing="false" text="латиница">
+      <CheckBox fx:id="isLatin" layoutX="933.0" layoutY="352.0" mnemonicParsing="false" text="латиница">
          <font>
             <Font name="Monospaced Bold" size="21.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="isSpecSymbols" layoutX="743.0" layoutY="391.0" mnemonicParsing="false" text="спецсимволы">
+      <CheckBox fx:id="isSpecSymbols" layoutX="745.0" layoutY="352.0" mnemonicParsing="false" text="спецсимволы">
          <font>
             <Font name="Monospaced Bold" size="21.0" />
          </font>
       </CheckBox>
-      <Label fx:id="label_encrypt_error" layoutX="259.0" layoutY="381.0" prefHeight="21.0" prefWidth="232.0" />
+      <Label fx:id="label_encrypt_error" layoutX="261.0" layoutY="342.0" prefHeight="21.0" prefWidth="232.0" />
       <Button fx:id="ButtonStart" layoutX="871.0" layoutY="469.0" mnemonicParsing="false" onAction="#OnActionButtonStart" prefHeight="38.0" prefWidth="221.0" text="СТАРТ">
          <font>
             <Font name="Monospaced Bold" size="19.0" />
          </font>
       </Button>
-      <Label fx:id="label_decrypt_error" layoutX="783.0" layoutY="419.0" prefHeight="21.0" prefWidth="307.0" />
+      <Label fx:id="label_decrypt_error" layoutX="624.0" layoutY="390.0" prefHeight="43.0" prefWidth="470.0" />
       <CheckBox fx:id="ignoreExeptions" layoutX="871.0" layoutY="441.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="221.0" text="убрать исключения">
          <font>
             <Font name="Monospaced Bold" size="18.0" />
          </font>
       </CheckBox>
+      <Text layoutX="624.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Шаг:" wrappingWidth="58.0">
+         <font>
+            <Font name="Monospaced Bold" size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="text_decrypt_stepSize" layoutX="688.0" layoutY="439.0" prefHeight="31.0" prefWidth="88.0" text="1000" />
    </children>
 </AnchorPane>

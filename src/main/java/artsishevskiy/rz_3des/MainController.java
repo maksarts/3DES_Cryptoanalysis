@@ -115,6 +115,9 @@ public class MainController {
     private TextArea text_encrypt_open;
 
     @FXML
+    private TextField text_decrypt_stepSize;
+
+    @FXML
     private MenuItem MenuButtonAbout;
 
     @FXML
@@ -149,6 +152,7 @@ public class MainController {
 
     @FXML
     void OnActionButtonNext(ActionEvent event) throws NoSuchAlgorithmException {
+        ButtonNext.setDisable(true);
         ArrayList<String> variants = analyzer.MakeStep();
         if(ignoreExeptions.isSelected()){
             text_decrypt_open.setText(MakeOutputNoExeption(variants));
@@ -156,6 +160,7 @@ public class MainController {
         else{
             text_decrypt_open.setText(MakeOutput(variants));
         }
+        ButtonNext.setDisable(false);
     }
 
     @FXML
@@ -164,6 +169,7 @@ public class MainController {
         ButtonNext.setDisable(true);
         ButtonDone.setDisable(true);
         ButtonEncrypt.setDisable(false);
+        text_decrypt_stepSize.setDisable(false);
         if(!text_encrypt_coded.getText().equals("")) ButtonDecrypt.setDisable(false);
 
         label_decrypt_error.setTextFill(Color.GREEN);
@@ -200,12 +206,24 @@ public class MainController {
                 ButtonDecrypt.setDisable(true);
 
                 int len = Integer.parseInt(text_decrypt_passLength.getText());
+                int stepSize = 1000;
+                try{
+                    stepSize = Integer.parseInt(text_decrypt_stepSize.getText());
+                }
+                catch(NumberFormatException e){
+                    e.printStackTrace();
+                    label_decrypt_error.setTextFill(Color.RED);
+                    label_decrypt_error.setText("Неверный размер шага!\nВыбрано значение по умолчанию: 1000");
+                    text_decrypt_stepSize.setText("1000");
+                }
+                text_decrypt_stepSize.setDisable(true);
+
                 analyzer = new Cryptoanalysis(len,
                                             isLatin.isSelected(),
                                             isDigits.isSelected(),
                                             isSpecSymbols.isSelected(),
                                             text_decrypt_coded.getText(),
-                                            1000
+                                            stepSize
                 );
                 ArrayList<String> variants = analyzer.MakeStep();
                 if(ignoreExeptions.isSelected()){
@@ -323,6 +341,7 @@ public class MainController {
         assert text_encrypt_open != null : "fx:id=\"text_encrypt_open\" was not injected: check your FXML file 'main.fxml'.";
         assert label_encrypt_error != null : "fx:id=\"label_encrypt_error\" was not injected: check your FXML file 'main.fxml'.";
         assert isDigits != null : "fx:id=\"isDigits\" was not injected: check your FXML file 'main.fxml'.";
+        assert text_decrypt_stepSize != null : "fx:id=\"text_decrypt_stepSize\" was not injected: check your FXML file 'main.fxml'.";
         assert text_encrypt_coded != null : "fx:id=\"text_encrypt_coded\" was not injected: check your FXML file 'main.fxml'.";
         assert ButtonDone != null : "fx:id=\"ButtonDone\" was not injected: check your FXML file 'main.fxml'.";
         assert MenuButtonClose != null : "fx:id=\"MenuButtonClose\" was not injected: check your FXML file 'main.fxml'.";
